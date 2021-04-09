@@ -20,45 +20,48 @@
 
 </div> -->
 <!-- https://lh3.googleusercontent.com/proxy/AVm5TsXlP1_8J1JiP4iQCRIwSU6T6YKeUyKI7ik0HB0wxmCQp7FYS28OxpCAi5jL9wDQBlAS5SFXKswStQ8_tjH1 -->
+ <!-- https://lh3.googleusercontent.com/proxy/AVm5TsXlP1_8J1JiP4iQCRIwSU6T6YKeUyKI7ik0HB0wxmCQp7FYS28OxpCAi5jL9wDQBlAS5SFXKswStQ8_tjH1 -->
  <div class="body"> 
-<div class="row">
-    <h2 class="text-center " style="color: blue; "> Shopping cart</h2>
-    <div class="text" *ngIf="cart.length===0"><img src="../../assets/cartempty.jpeg" class="img d-block mx-auto" alt=""></div>
-    <div class="card" *ngIf="cart.length>0">
-        <div class="card-body"  *ngFor="let item of cart; let i=index"> <hr>
-            <div class="row " >
-        <div class="col-sm-4">
-         <img src= {{item.productimage}} class="img h-75" alt="">   
+    <div class="row">
+        <h2 class="text-center " style="color: blue; "> Shopping cart</h2>
+        <div class="text" *ngIf="cart.length===0"><img src="../../assets/cartempty.jpeg" class="img d-block mx-auto" alt=""></div>
+        <div class="card" *ngIf="cart.length>0">
+            <div class="card-body"  *ngFor="let item of cart; let i=index"> <hr>
+                <div class="row " >
+            <div class="col-sm-4">
+             <img src= {{item.productimage}} class="img h-75" alt="">   
+            </div>
+            <div class="col-sm-8">
+              <b style="font-size: 30px;">{{item.productname}}</b>   <br>
+    
+              
+              <!-- <b style="font-size: 30px;">{{item.product._id}}</b>   <br> -->
+              <!-- <b style="font-size: 30px;">{{item.product.productid}}</b>   <br> -->
+    
+    
+    
+             <span>MRP:</span>  <i class="fas fa-rupee-sign"></i>  {{item.productprice}} <br>
+                <!-- {{item.product.productdescription}} -->
+                <div class="row mt-4" >
+                    <div class="col-sm-3"><button type="button" class="minus bg-danger" style="width: max-content; font-size: 20px; size: 50px;" (click)="minus(item)"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"><path d="M10.975 8l.025-.5c0-.517-.066-1.018-.181-1.5h5.993l-.564 2h-5.273zm-2.475 10c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5s1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm11.305-15l-3.432 12h-10.428l-.455-1.083c-.324.049-.652.083-.99.083-.407 0-.805-.042-1.191-.114l1.306 3.114h13.239l3.474-12h1.929l.743-2h-4.195zm-6.305 15c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm-4.5-10.5c0 2.485-2.018 4.5-4.5 4.5-2.484 0-4.5-2.015-4.5-4.5s2.016-4.5 4.5-4.5c2.482 0 4.5 2.015 4.5 4.5zm-2-.5h-5v1h5v-1z"/></svg></button> </div>
+                    <div class="col-sm-6"><h2 class="text">Quantity:  {{item.quantity}}</h2></div>
+                    <div class="col-sm-3"> <button type="button" class="minus bg-success" style="width: max-content;" (click)="plus(item)"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"><path d="M10.975 8l.025-.5c0-.517-.067-1.018-.181-1.5h5.993l-.564 2h-5.273zm-2.475 10c-.828 0-1.5.672-1.5 1.5 0 .829.672 1.5 1.5 1.5s1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm11.305-15l-3.432 12h-10.428l-.455-1.083c-.323.049-.653.083-.99.083-.407 0-.805-.042-1.191-.114l1.306 3.114h13.239l3.474-12h1.929l.743-2h-4.195zm-6.305 15c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5c0-.828-.672-1.5-1.5-1.5zm-4.5-10.5c0 2.485-2.018 4.5-4.5 4.5-2.484 0-4.5-2.015-4.5-4.5s2.016-4.5 4.5-4.5c2.482 0 4.5 2.015 4.5 4.5zm-2-.5h-2v-2h-1v2h-2v1h2v2h1v-2h2v-1z"/></svg></button></div>
+                    <!-- <div class="inline" style="display:flex;">
+                   
+                   
+                   
+                   
+                </div> -->
+                <!-- (click)="deleteprodincart(item)" -->
+                <div class="col-sm-3">  <button class="btn btn-danger mt-3" (click)="deleteprodincart(item)"><i class="far fa-trash-alt"></i>  Delete</button> </div>
+                <div class="col-sm-3">   <button class="btn btn-success ml-3 mt-3"  (click)="payment()"> <i class="far fa-credit-card"></i> Checkout</button></div>
+            </div>
+            </div>
         </div>
-        <div class="col-sm-8">
-          <b style="font-size: 30px;">{{item.productname}}</b>   <br>
-
-          
-          <!-- <b style="font-size: 30px;">{{item.product._id}}</b>   <br> -->
-          <!-- <b style="font-size: 30px;">{{item.product.productid}}</b>   <br> -->
-
-
-
-         <span>MRP:</span>  <i class="fas fa-rupee-sign"></i>  {{item.productprice}} <br>
-            <!-- {{item.product.productdescription}} -->
-            <div class="row mt-4" >
-                <div class="col-sm-3"><button type="button" class="minus bg-danger" style="width: max-content; font-size: 20px; size: 50px;" (click)="minus(item)">-</button> </div>
-                <div class="col-sm-6"><h2 class="text">Quantity:  {{item.quantity}}</h2></div>
-                <div class="col-sm-3"> <button type="button" class="minus bg-success" style="width: max-content;" (click)="plus(item)">+</button></div>
-                <!-- <div class="inline" style="display:flex;">
-               
-               
-               
-               
-            </div> -->
-            <!-- (click)="deleteprodincart(item)" -->
-            <div class="col-sm-3">  <button class="btn btn-danger mt-3" (click)="deleteprodincart(item)">Delete</button> </div>
-            <div class="col-sm-3">   <button class="btn btn-success ml-3 mt-3"  (click)="payment()">Checkout</button></div>
-        </div>
-        </div>
+            </div>
+          </div>
+                       <h2 class="text-center">Total Price is : {{sum}}</h2>
     </div>
-        </div>
-      </div>
-                   <h2 class="text-center">Total Price is : {{sum}}</h2>
-</div>
- </div> 
+     </div>
+     
+    

@@ -62,11 +62,11 @@
                         </div>
 
                         <!-- validation for card -->
-                        <div class="text" style="color: red;" *ngIf="(ref3.touched || formRef.submitted) && (ref3.errors?.required)">
-                            *MM Number is required </div>
+                        <span class="text" style="color: red;" *ngIf="(ref3.touched || formRef.submitted) && (ref3.errors?.required)">
+                            *MM Number is required </span>
 
-                            <div class="text" style="color: red;" *ngIf="(ref4.touched || formRef.submitted) && (ref4.errors?.required)">
-                                *YY Number is required </div>
+                            <span class="text" style="color: red;margin-left:200px;" *ngIf="(ref4.touched || formRef.submitted) && (ref4.errors?.required)">
+                                *YY Number is required </span>
                         
 
                     </div>
@@ -74,8 +74,13 @@
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label data-toggle="tooltip" title=""  data-original-title="3 digits code on back side of the card">CVV <i class="fa fa-question-circle"></i></label>
-                        <input type="number" required class="form-control">
-                    </div> <!-- form-group.// -->
+                        <input type="number" required class="form-control" ngModel #ref3="ngModel"  name="cvv">
+                    </div>
+                      <!-- validation for card -->
+                      <span class="text" style="color: red;" *ngIf="(ref3.touched || formRef.submitted) && (ref3.errors?.required)">
+                        *CVV is required </span>
+
+                     <!-- form-group.// -->
                 </div>
             </div> <!-- row.// -->
             <button class="subscribe btn btn-primary d-block mx-auto mt-4" type="submit"> Confirm  </button>
@@ -84,7 +89,7 @@
         <div class="tab-pane fade" id="nav-tab-paypal">
         <p>Paypal is easiest way to pay online</p>
         <p>
-        <button type="button" class="btn btn-primary"> <i class="fab fa-paypal"></i> Log in my Paypal </button>
+        <button type="button" class="btn btn-primary"> <i class="fab fa-paypal"></i>    <a href="https://www.paypal.com/in/home" style="text-decoration: none;color: white;" >Log in my Paypal</a>  </button>
         </p>
         <p><strong>Note:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. </p>
